@@ -1,0 +1,25 @@
+<html>
+    <body>
+        <h1><%= @figure.name %></h1>
+<div>
+        <h3>Titles</h3>
+        <ul>
+            <% @titles.each do | title | %>
+                <li><%= title.name %></li>
+            <% end %>
+        </ul>
+    </div>
+
+    <div>
+        <h3>Landmarks</h3>
+        <ul>
+            <% @landmarks.each do | landmark | %>
+                <li><%= landmark.name %>  </li>
+            <% end %>
+        </ul>
+    </div>
+
+
+
+    </body>
+</html>
