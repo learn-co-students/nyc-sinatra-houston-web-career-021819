@@ -1,0 +1,53 @@
+<h2>Edit Figure</h2>
+<form method="POST" action="/figures/<%= @figure.id %>">
+    <input type="hidden" name="_method" value="PATCH" />
+    <div>
+        <label>Name</label>
+        <input type="text" name="figure[name]" value="<%= @figure.name %>" id="figure_name" />
+    </div>
+
+ <div>
+        <h3>Titles</h3>
+        <ul>
+            <% @titles.each do | title | %>
+                <li>
+                    <input type="checkbox" name="figure[title_ids][]" value="<%= title.id %>" id="title_<%=title.id%>"> <%= title.name %> </input>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+    <div>
+        <h3>Create New Title</h3>
+        <label>Title Name</label>
+        <input type="text" name="title[name]" id="new_title" />
+    </div>
+
+        <br>
+        
+    <div>
+        <h3>Landmarks</h3>
+        <ul>
+            <% @landmarks.each do | landmark | %>
+                <li>
+                    <input type="checkbox" name="figure[landmark_ids][]" value="<%= landmark.id %>" id="landmark_<%=landmark.id%>"> <%= landmark.name %></input>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+    <div>
+        <h3>Create New Landmark</h3>
+        <label>Landmark Name</label>
+        <input type="text" name="landmark[name]" id="new_landmark" />
+        <label>Landmark Year Completed</label>
+        <input type="text" name="landmark[year_completed]" id="landmark_year_completed" />
+    </div>
+
+        <br>
+
+
+    <input type="submit" id="Edit Figure" />
+</form>
+<form method="POST" action="/figures/<%= @figure.id %>">
+    <input type="hidden" name="_method" value="DELETE" />
+    <input type="submit" value="Delete"/>
+</form>
